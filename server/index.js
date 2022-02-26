@@ -18,11 +18,11 @@ app.post("/insert", async (req, res)=>{
     console.log(req.body);
     res.send();
 
-    const productName = req.body.productName;
+    var productName = req.body.productName;
     const star = req.body.star;
     const price = req.body.price;
 
-    const product = new ProductModel({ productName: 'productName', star: star, price:price });
+    const product = new ProductModel({ productName: productName, star: star, price:price });
     try{
       await product.save();
     }catch(err){

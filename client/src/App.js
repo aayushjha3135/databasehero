@@ -4,7 +4,7 @@ import './App.css';
 
 
 function App() {
- const [productName, setProductName] = useState();
+ const [productName, setProductName] = useState("Apple");
  const [star, setStar] = useState(0);
  const [price, setPrice] = useState(0);
 
@@ -18,7 +18,7 @@ Axios.get('http://localhost:3001/read').then((response)=>{
 
  const addToList = () => {
    Axios.post("http://localhost:3001/insert",{
-     productname:productName, 
+     productName:productName, 
      star: star, 
      price:price
     });
@@ -30,21 +30,21 @@ Axios.get('http://localhost:3001/read').then((response)=>{
           <label>
             <p>Product</p>
             <input 
-            type="string"
+            
             onChange={(event) =>{setProductName(event.target.value);
             }}
              />
           </label>
           <label >
             <p>Star</p>
-            <input number="number" 
+            <input 
             onChange={(event) =>{setStar(event.target.value);
             }} 
             />
           </label>
           <label>
             <p>Price</p>
-            <input number="number" 
+            <input 
             onChange={(event) =>{setPrice(event.target.value);
             }}
             />
